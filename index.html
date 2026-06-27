@@ -1,0 +1,72 @@
+graph TD
+    %% Estilos Generales
+    classDef raiz fill:#1f4e79,stroke:#122f4a,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef subtema fill:#2e75b6,stroke:#1f4e79,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef concepto fill:#deeaf6,stroke:#2e75b6,stroke-width:1px,color:#000;
+    classDef detalle fill:#f2f2f2,stroke:#bfbfbf,stroke-width:1px,color:#333,font-style:italic;
+    classDef norma fill:#fff2cc,stroke:#d6b656,stroke-width:1px,color:#000;
+
+    %% Nivel Root
+    Root(Auditoría del Hardware)
+    class Root raiz;
+
+    %% 3.1 Finalidad
+    Root -- se orienta a --> T1(3.1 Finalidad de la evaluación)
+    T1 -- persigue --> C1_1(Objetivos estratégicos, operativos y de cumplimiento)
+    T1 -- determina si los recursos son --> C1_2(Adecuación, seguridad y eficiencia)
+    T1 -- evalúa --> C1_3(Adecuación tecnológica) & C1_4(Rentabilidad y eficiencia) & C1_5(Alineación estratégica) & C1_6(Cumplimiento normativo y ciclo de vida)
+    C1_3 --> D1_1(Capacidad de procesamiento, RAM, almacenamiento y red)
+    C1_4 --> D1_2(Evita subutilización o sobredimensionamiento)
+    C1_5 --> D1_3(Alineación con Plan de TI y metas del negocio)
+    C1_6 --> D1_4(Regulaciones ambientales RAEE, seguridad eléctrica y obsolescencia)
+    class T1 subtema; class C1_1,C1_2,C1_3,C1_4,C1_5,C1_6 concepto; class D1_1,D1_2,D1_3,D1_4 detalle;
+
+    %% 3.2 Requerimientos
+    Root -- requiere --> T2(3.2 Requerimientos para la evaluación)
+    T2 -- se divide en --> C2_1(Requerimientos documentales) & C2_2(Requerimientos técnicos) & C2_3(Competencia del auditor)
+    C2_1 --> D2_1(Inventario de activos, contratos, manuales, bitácoras y presupuestos)
+    C2_2 --> D2_2(Herramientas de diagnóstico SNMP/SMART, accesos físicos y monitoreo)
+    C2_3 --> D2_3(Conocimiento en arquitectura, redes, servidores y marcos como COBIT/ISO)
+    class T2 subtema; class C2_1,C2_2,C2_3 concepto; class D2_1,D2_2,D2_3 detalle;
+
+    %% 3.3 Administración
+    Root -- verifica --> T3(3.3 Administración del hardware)
+    T3 -- abarca --> C3_1(Gestión de activos ITAM) & C3_2(Proceso de adquisición) & C3_3(Mantenimiento preventivo/correctivo) & C3_4(Control de cambios y obsolescencia)
+    C3_1 --> D3_1(Registra estado, ubicación, responsable y valor contable)
+    C3_2 --> D3_2(Revisa criterios técnicos, económicos y licitaciones)
+    C3_3 --> D3_3(Evalúa planes de trabajo y tiempos de reparación MTTR)
+    C3_4 --> D3_4(Sigue procesos formales y planifica el desecho ecológico RAEE)
+    class T3 subtema; class C3_1,C3_2,C3_3,C3_4 concepto; class D3_1,D3_2,D3_3,D3_4 detalle;
+
+    %% 3.4 Instalación
+    Root -- inspecciona --> T4(3.4 Instalación del hardware)
+    T4 -- evalúa --> C4_1(Condiciones físicas del sitio) & C4_2(Infraestructura eléctrica y de red) & C4_3(Configuración inicial y pruebas)
+    C4_1 --> D4_1(Verifica rangos de temperatura 18-27°C y humedad 40-60% según TIA-942)
+    C4_2 --> D4_2(Exige circuitos regulados, UPS, puesta a tierra y cableado ANSI/TIA-568)
+    C4_3 --> D4_3(Aplica cambio de credenciales, actualización de firmware y pruebas funcionales)
+    class T4 subtema; class C4_1,C4_2,C4_3 concepto; class D4_1,D4_2,D4_3 detalle;
+
+    %% 3.5 Operación y Seguridad
+    Root -- valida --> T5(3.5 Operación y seguridad)
+    T5 -- se enfoca en --> C5_1(Controles operativos) & C5_2(Mecanismos de seguridad física/lógica)
+    C5_1 --> D5_1(Monitoreo continuo, métricas Uptime/MTBF/MTTR y planes BCP/DRP)
+    C5_2 --> D5_2(Acceso restringido biometría/CCTV, protección contra incendios y borrado seguro NIST SP 800-88)
+    class T5 subtema; class C5_1,C5_2 concepto; class D5_1,D5_2 detalle;
+
+    %% 3.6 Personal
+    Root -- examina al --> T6(3.6 Personal responsable)
+    T6 -- analiza --> C6_1(Estructura organizacional y roles) & C6_2(Competencias y segregación) & C6_3(Controles de acceso y procesos)
+    C6_1 --> D6_1(Define responsabilidades para administradores, operadores y soporte)
+    C6_2 --> D6_2(Comprueba certificaciones CompTIA/Cisco y evita funciones incompatibles)
+    C6_3 --> D6_3(Gestiona procesos formales de Onboarding/Offboarding bajo mínimo privilegio)
+    class T6 subtema; class C6_1,C6_2,C6_3 concepto; class D6_1,D6_2,D6_3 detalle;
+
+    %% 3.7 Normas
+    Root -- determina --> T7(3.7 Nivel de aplicación de normas)
+    T7 -- identifica --> C7_1(Brechas gaps respecto a mejores prácticas)
+    T7 -- integra marcos específicos --> N1(COBIT 2019: Gobierno y Activos) & N2(ISO/IEC 27001:2022: Controles Físicos) & N3(NIST SP 800-53: Protección Física/Ambiental) & N4(TIA-942-B: Infraestructura de Datacenters) & N5(ITIL 4: Gestión de Servicios/Continuidad)
+    N1 --> DN1(Evalúa procesos BAI09/APO01 en escala de madurez 0 a 5)
+    N2 --> DN2(Evalúa controles del Anexo A.7 emitiendo conformidad)
+    N3 --> DN3(Evalúa familia PE para determinar nivel de implementación)
+    N4 --> DN4(Clasifica la disponibilidad del diseño en niveles Tier I al IV)
+    class T7 subtema; class C7_1 concepto; class N1,N2,N3,N4,N5 norma; class DN1,DN2,DN3,DN4 detalle;
